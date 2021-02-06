@@ -70,7 +70,7 @@
         $this.find('.vtimeline-content').each(function() {
             var date = $(this).data('date');
             if (date) { // Prepend if exists
-                $(this).parent().prepend('<span class="vtimeline-date">'+date+'</span>');
+                $(this).parent().prepend('<span class="vtimeline-date">' + date + '</span>');
             }
         });
 
@@ -87,7 +87,7 @@
     });
 
     // Load additional projects
-    $('#view-more-projects').click(function(e){
+    $('#view-more-projects').click(function(e) {
         e.preventDefault();
         $(this).fadeOut(300, function() {
             $('#more-projects').fadeIn(300);
