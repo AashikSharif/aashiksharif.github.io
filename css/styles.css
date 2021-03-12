@@ -234,8 +234,8 @@ footer {
 
 .shadow-large {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-flow: column
+    display: flexbox;
+    flex-direction: row;
 }
 
 .heading {
@@ -648,7 +648,7 @@ footer {
 }
 
 .project-image {
-    float: left
+    text-align: left;
 }
 
 .project-info {
