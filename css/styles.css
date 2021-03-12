@@ -922,9 +922,7 @@ footer {
     .education-block span {
         float: none
     }
-    .project-image {
-        display: none
-    }
+    .project-image {}
     .project-info {
         position: relative;
         margin: 0;
