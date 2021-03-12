@@ -535,6 +535,12 @@ footer {
     margin: 0
 }
 
+.vtimeline-content img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
 .vtimeline-point {
     position: relative;
     display: block;
