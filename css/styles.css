@@ -234,8 +234,11 @@ footer {
 
 .shadow-large {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
-    display: flexbox;
-    flex-direction: row;
+    display: flex;
+    text-align: left;
+    padding: 15%;
+    position: relative;
+    flex-flow: column;
 }
 
 .heading {
@@ -647,9 +650,7 @@ footer {
     border-radius: 4px
 }
 
-.project-image {
-    text-align: left;
-}
+.project-image {}
 
 .project-info {
     position: absolute;
