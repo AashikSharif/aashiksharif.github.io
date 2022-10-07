@@ -297,6 +297,18 @@ footer {
     animation-delay: 0.2s;
 }
 
+.column {
+    float: left;
+    width: 50.00%;
+    padding: 5px;
+}
+
+.row2::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .sk-cube-grid .sk-cube2 {
     -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s;
