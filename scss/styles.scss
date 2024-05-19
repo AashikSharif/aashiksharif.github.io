@@ -959,15 +959,16 @@ footer {
     }
 
     .project-image {
-        display: none;
+        float: left;
+        width: 40%; /* Adjust width of the image */
+        margin-right: 5%; /* Add margin between image and text */
+
     }
 
     .project-info {
-        position: relative;
-        margin: 0;
-        padding: 30px 15px;
-        top: auto;
-        transform: none;
+        width: 55%; /* Adjust width of the project info */
+        float: left; /* Float the project info to the right */
+        padding: 15px;
     }
 
     footer {

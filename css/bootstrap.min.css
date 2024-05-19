@@ -396,7 +396,7 @@ hr {
 
 .row {
     margin-left: -15px;
-    margin-right: -15px
+    margin-right: -15px;
 }
 
 .col-xs-1,
@@ -718,7 +718,7 @@ hr {
         width: 25%
     }
     .col-sm-2 {
-        width: 16.66666667%
+        width: 25%
     }
     .col-sm-1 {
         width: 8.33333333%
@@ -870,7 +870,7 @@ hr {
         width: 75%
     }
     .col-md-8 {
-        width: 66.66666667%
+        width: 66.66666667%;
     }
     .col-md-7 {
         width: 58.33333333%
@@ -882,8 +882,8 @@ hr {
         width: 41.66666667%
     }
     .col-md-4 {
-        width: 33.33333333%
-    }
+        width: 33.33333333%;
+         }
     .col-md-3 {
         width: 25%
     }
