@@ -10,134 +10,57 @@
     that don't come from third party libraries. This file gets compiled using
     Gulp and send to the /css folder which is then loaded on the page.
 */
-/*
-    File Contents:
-
-        1. Variables
-        2. Mixins
-        3. Global Styles
-        4. Lead Styles
-        5. About Styles
-        6. Experience Styles
-        7. Education Styles
-        8. Project Styles
-        9. Skills Styles
-        10. Contact Styles
-        11. Optional Section Styles
-        12. Media Queries
-*/
-
-/*
-    ------------------------
-    ----- 1. Variables -----
-    ------------------------
-*/
-
-// Define base and accent colors
-$base-color: #3498db;
-$base-color-hover: darken($base-color, 10%);
-
-// Define background colors
-$background: #fff;
-$background-alt: #f2f2f5;
-
-// Define border colors
-$border: #dcd9d9;
-
-// Define text colors
-$heading: #374054;
-$text: #74808a;
-
-/*
-    ---------------------
-    ----- 2. Mixins -----
-    ---------------------
-*/
-
-@mixin transition($duration: 0.5s, $func: ease, $property: all) {
-    transition: #{$duration} #{$func} #{$property};
-}
-
-@mixin placeholder {
-    &::-webkit-input-placeholder {
-        @content;
-    }
-
-    &:-moz-placeholder {
-        @content;
-        opacity: 1;
-    }
-
-    &::-moz-placeholder {
-        @content;
-        opacity: 1;
-    }
-
-    &:-ms-input-placeholder {
-        @content;
-    }
-}
-
-/*
-    ----------------------------
-    ----- 3. Global Styles -----
-    ----------------------------
-*/
 
 body {
     font-family: 'Lato', sans-serif;
-    font-size: 16px;
-
-    &.active {
-        overflow: hidden;
-        z-index: -1;
-    }
+    font-size: 16px
 }
 
-// No JS styles
-.no-js {
-    #experience-timeline {
-        > div {
-            background: $background;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid $border;
+body.active {
+    overflow: hidden;
+    z-index: -1
+}
 
-            h3 {
-                font-size: 1.5em;
-                font-weight: 300;
-                color: $heading;
-                display: inline-block;
-                margin: 0;
-            }
+.no-js #experience-timeline>div {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dcd9d9
+}
 
-            h4 {
-                font-size: 1.2em;
-                font-weight: 300;
-                color: #7e8890;
-                margin: 0 0 15px 0;
-            }
+.no-js #experience-timeline>div h3 {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #374054;
+    display: inline-block;
+    margin: 0
+}
 
-            p {
-                color: $text;
-                font-size: 0.9em;
-                margin: 0;
-            }
-        }
+.no-js #experience-timeline>div h4 {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #7e8890;
+    margin: 0 0 15px 0
+}
 
-        &:before, &:after {
-            content: none;
-        }
-    }
+.no-js #experience-timeline>div p {
+    color: #74808a;
+    font-size: 0.9em;
+    margin: 0
+}
+
+.no-js #experience-timeline:before,
+.no-js #experience-timeline:after {
+    content: none
 }
 
 @keyframes dropHeader {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    0% {
+        transform: translateY(-100%)
+    }
+    100% {
+        transform: translateY(0)
+    }
 }
 
 header {
@@ -150,54 +73,52 @@ header {
     animation-name: dropHeader;
     animation-iteration-count: 1;
     animation-timing-function: ease;
-    animation-duration: 0.75s;
-
-    ul {
-        display: inline-block;
-        background: $background;
-        text-align: center;
-        padding: 10px;
-        margin: 0;
-        border-bottom-right-radius: 4px;
-        border-bottom-left-radius: 4px;
-    }
-
-    li {
-        display: inline-block;
-    }
-
-    a {
-        display: block;
-        color: $base-color;
-        padding: 10px;
-
-        &:hover {
-            color: $base-color-hover;
-            text-decoration: none;
-            background: #eee;
-            border-radius: 4px;
-        }
-
-        &:focus {
-            color: $base-color;
-            text-decoration: none;
-        }
-    }
-
-    &.active {
-        display: block;
-    }
-
-    &.sticky {
-        position: fixed;
-        z-index: 999;
-    }
+    animation-duration: 0.75s
 }
 
-#menu {
-    &.active {
-        display: block;
-    }
+header ul {
+    display: inline-block;
+    background: #fff;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+
+header li {
+    display: inline-block
+}
+
+header a {
+    display: block;
+    color: #3498db;
+    padding: 10px
+}
+
+header a:hover {
+    color: #217dbb;
+    text-decoration: none;
+    background: #eee;
+    border-radius: 4px
+}
+
+header a:focus {
+    color: #3498db;
+    text-decoration: none
+}
+
+header.active {
+    display: block
+}
+
+header.sticky {
+    position: fixed;
+    z-index: 999
+}
+
+#menu.active {
+    display: block
 }
 
 #mobile-menu-open {
@@ -206,90 +127,90 @@ header {
     position: fixed;
     right: 15px;
     top: 10px;
-    color: $base-color;
+    color: #3498db;
     font-size: 1.5em;
     z-index: 20;
     padding: 0 7px;
     border-radius: 4px;
-    background: $background;
+    background: #fff
 }
 
 #mobile-menu-close {
     display: none;
     text-align: right;
     width: 100%;
-    background: $background;
+    background: #fff;
     font-size: 1.5em;
     padding-right: 15px;
     padding-top: 10px;
     cursor: pointer;
-    color: $base-color;
+    color: #3498db
+}
 
-    span {
-        font-size: 0.5em;
-        text-transform: uppercase;
-    }
+#mobile-menu-close span {
+    font-size: 0.5em;
+    text-transform: uppercase
+}
 
-    i {
-        vertical-align: middle;
-    }
+#mobile-menu-close i {
+    vertical-align: middle
 }
 
 footer {
-    padding: 50px 0;
+    padding: 50px 0
 }
 
 .copyright {
-    padding-top: 20px;
+    padding-top: 20px
+}
 
-    p {
-        margin: 0;
-        color: $text;
-    }
+.copyright p {
+    margin: 0;
+    color: #74808a
 }
 
 .top {
-    text-align: center;
+    text-align: center
+}
 
-    span {
-        cursor: pointer;
-        display: block;
-        margin: 15px auto 0 auto;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        border: 3px solid lighten($text, 25%);
-        text-align:center;
-    }
+.top span {
+    cursor: pointer;
+    display: block;
+    margin: 15px auto 0 auto;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid #b9bfc4;
+    text-align: center
+}
 
-    i {
-        color: $text;
-    }
+.top i {
+    color: #74808a
 }
 
 .social {
-    text-align: right;
+    text-align: center
+}
 
-    ul {
-        margin: 5px 0 0 0;
-        padding: 0;
-    }
+.social ul {
+    margin: 5px 0 0 0;
+    padding: 0
+}
 
-    li {
-        display: inline-block;
-        font-size: 1.25em;
-        list-style: none;
-    }
+.social li {
+    display: inline-block;
+    font-size: 2.5em;
+    list-style: none
+}
 
-    a {
-        display: block;
-        color: $text;
-        padding: 10px;
+.social a {
+    display: block;
+    color: #000000;
+    padding: 10px
+}
 
-        &:hover {
-            color: $base-color;
-        }
-    }
+.social a:hover {
+    color: #3498db
 }
 
 .btn-rounded-white {
@@ -298,26 +219,24 @@ footer {
     padding: 15px 25px;
     border: 3px solid #fff;
     border-radius: 30px;
-    @include transition();
+    transition: .5s ease all
+}
 
-    &:hover {
-        color: $base-color;
-        background: #fff;
-        text-decoration: none;
-    }
+.btn-rounded-white:hover {
+    color: #3498db;
+    background: #fff;
+    text-decoration: none
 }
 
 .shadow {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
 }
 
 .shadow-large {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
     display: flex;
     text-align: left;
-    padding-left: 15%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding: 15%;
     position: relative;
     flex-flow: column;
 }
@@ -327,40 +246,144 @@ footer {
     display: inline-block;
     font-size: 2em;
     font-weight: 300;
-    margin: 0 0 30px 0;
+    margin: 0 0 30px 0
+}
 
-    &:after {
-        position: absolute;
-        content: '';
-        top: 100%;
-        height: 1px;
-        width: 50px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        background: $base-color;
-    }
+.heading:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    height: 1px;
+    width: 50px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: #3498db
 }
 
 .background-alt {
-    background: $background-alt;
+    background: #f2f2f5
 }
 
-/*
-    --------------------------
-    ----- 4. Lead Styles -----
-    --------------------------
-*/
+.spinner-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3498db;
+    z-index: 999999;
+}
+
+.sk-cube-grid {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 48%;
+    left: 48%;
+}
+
+.sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: rgb(255, 255, 255);
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+    animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+.sk-cube-grid .sk-cube1 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.column {
+    float: left;
+    width: 50.00%;
+    padding: 5px;
+}
+
+.row2::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.sk-cube-grid .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube3 {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.sk-cube-grid .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube7 {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.sk-cube-grid .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube9 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+    0%,
+    70%,
+    100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+    0%,
+    70%,
+    100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
 
 #lead {
     position: relative;
     height: 100vh;
     min-height: 500px;
     max-height: 1080px;
-    background: url(../images/lead-bg.jpg);
+    background: url(../images/lead-bg.webp);
     background-size: cover;
     padding: 15px;
-    overflow: hidden;
+    overflow: hidden
 }
 
 #lead-content {
@@ -369,27 +392,28 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    text-align: center
+}
 
-    h1, h2 {
-        margin: 0;
-    }
+#lead-content h1,
+#lead-content h2 {
+    margin: 0
+}
 
-    h1 {
-        color: #fff;
-        font-weight: 900;
-        font-size: 5em;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        line-height: 0.9em;
-    }
+#lead-content h1 {
+    color: #fff;
+    font-weight: 900;
+    font-size: 5em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 0.9em
+}
 
-    h2 {
-        color: lighten($base-color, 25%);
-        font-weight: 500;
-        font-size: 2.25em;
-        margin-bottom: 15px;
-    }
+#lead-content h2 {
+    color: #a0cfee;
+    font-weight: 500;
+    font-size: 2.25em;
+    margin-bottom: 15px
 }
 
 #lead-overlay {
@@ -400,8 +424,8 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba($base-color-hover, 0.8);
-    z-index: 1;
+    background: rgba(33, 125, 187, 0.8);
+    z-index: 1
 }
 
 #lead-down {
@@ -412,104 +436,90 @@ footer {
     text-align: center;
     z-index: 10;
     bottom: 15px;
-    color: #fff;
+    color: #fff
+}
 
-    span {
-        cursor: pointer;
-        display: block;
-        margin: 0 auto;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        border: 3px solid lighten($base-color, 25%);
-        text-align:center;
-    }
+#lead-down span {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid #a0cfee;
+    text-align: center
+}
 
-    i {
-        animation: pulsate 1.5s ease;
-        animation-iteration-count: infinite;
-        padding-top: 5px;;
-    }
+#lead-down i {
+    animation: pulsate 1.5s ease;
+    animation-iteration-count: infinite;
+    padding-top: 5px
 }
 
 @keyframes pulsate {
     0% {
-        transform: scale(1, 1);
+        transform: scale(1, 1)
     }
-
     50% {
-        transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2)
     }
-
     100% {
-        transform: scale(1, 1);
+        transform: scale(1, 1)
     }
 }
-
-/*
-    ---------------------------
-    ----- 5. About Styles -----
-    ---------------------------
-*/
 
 #about {
     padding: 75px 15px;
-    border-bottom: 1px solid $border;
-
-    h2 {
-        color: $heading;
-    }
-
-    p {
-        color: $text;
-        margin: 0;
-    }
+    border-bottom: 1px solid #dcd9d9
 }
 
-/*
-    --------------------------------
-    ----- 6. Experience Styles -----
-    --------------------------------
-*/
+#about h2 {
+    color: #374054
+}
+
+#about p {
+    color: #74808a;
+    margin: 0
+}
 
 #experience {
     padding: 50px 15px;
     text-align: center;
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid #dcd9d9
+}
 
-    h2 {
-        color: $heading;
-    }
+#experience h2 {
+    color: #374054
 }
 
 #experience-timeline {
     margin: 30px auto 0 auto;
     position: relative;
-    max-width: 1000px;
+    max-width: 1000px
+}
 
-    &:before {
-        position: absolute;
-        content: '';
-        top: 0;
-        bottom: 0;
-        left: 303px;
-        right: auto;
-        height: 100%;
-        width: 3px;
-        background: $base-color;
-        z-index: 0;
-    }
+#experience-timeline:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 303px;
+    right: auto;
+    height: 100%;
+    width: 3px;
+    background: #3498db;
+    z-index: 0
+}
 
-    &:after {
-        position: absolute;
-        content: '';
-        width: 3px;
-        height: 40px;
-        background: $base-color;
-        background: linear-gradient(to bottom, $base-color, rgba($base-color, 0));
-        top: 100%;
-        left: 303px;
-    }
+#experience-timeline:after {
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 40px;
+    background: #3498db;
+    background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
+    top: 100%;
+    left: 303px
 }
 
 .vtimeline-content {
@@ -518,35 +528,41 @@ footer {
     border: 1px solid #e6e6e6;
     padding: 15px;
     border-radius: 3px;
-    text-align: left;
+    text-align: left
+}
 
-    h3 {
-        font-size: 1.5em;
-        font-weight: 300;
-        color: $heading;
-        display: inline-block;
-        margin: 0;
-    }
+.vtimeline-content h3 {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #374054;
+    display: inline-block;
+    margin: 0
+}
 
-    h4 {
-        font-size: 1.2em;
-        font-weight: 300;
-        color: #7e8890;
-        margin: 0 0 15px 0;
-    }
+.vtimeline-content h4 {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #7e8890;
+    margin: 0 0 15px 0
+}
 
-    p {
-        color: $text;
-        font-size: 0.9em;
-        margin: 0;
-    }
+.vtimeline-content p {
+    color: #74808a;
+    font-size: 0.9em;
+    margin: 0
+}
+
+.vtimeline-content img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
 .vtimeline-point {
     position: relative;
     display: block;
     vertical-align: top;
-    margin-bottom: 30px;
+    margin-bottom: 30px
 }
 
 .vtimeline-icon {
@@ -554,17 +570,17 @@ footer {
     color: #fff;
     width: 50px;
     height: 50px;
-    background: $base-color;
+    background: #3498db;
     border-radius: 50%;
     float: left;
     z-index: 99;
-    margin-left: 280px;
+    margin-left: 280px
+}
 
-    i {
-        display: block;
-        font-size: 2em;
-        margin-top: 10px;
-    }
+.vtimeline-icon i {
+    display: block;
+    font-size: 2em;
+    margin-top: 10px
 }
 
 .vtimeline-date {
@@ -574,438 +590,417 @@ footer {
     left: 0;
     top: 10px;
     font-weight: 300;
-    color: #374054;
+    color: #374054
 }
-
-/*
-    -------------------------------
-    ----- 7. Education Styles -----
-    -------------------------------
-*/
 
 #education {
     padding: 50px 15px 20px 15px;
-    border-bottom: 1px solid $border;
-    text-align: center;
+    border-bottom: 1px solid #dcd9d9;
+    text-align: center
+}
 
-    h2 {
-        color: $heading;
-        margin-bottom: 50px;
-    }
+#education h2 {
+    color: #374054;
+    margin-bottom: 50px
 }
 
 .education-block {
     max-width: 700px;
     margin: 0 auto 30px auto;
     padding: 15px;
-    border: 1px solid $border;
-    text-align: left;
-
-    h3 {
-        font-weight: 500;
-        float: left;
-        margin: 0;
-        color: $heading;
-    }
-
-    span {
-        color: $text;
-        float: right;
-    }
-
-    h4 {
-        color: $text;
-        clear: both;
-        font-weight: 500;
-        margin: 0 0 15px 0;
-    }
-
-    p, ul {
-        margin: 0;
-        color: $text;
-        font-size: 0.9em;
-    }
-
-    ul {
-        padding: 0 0 0 15px;
-    }
+    border: 1px solid #dcd9d9;
+    text-align: left
 }
 
-/*
-    -------------------------------
-    ----- 8. Project Styles -----
-    -------------------------------
-*/
+.education-block h3 {
+    font-weight: 500;
+    float: left;
+    margin: 0;
+    color: #374054
+}
 
+.education-block span {
+    color: #74808a;
+    float: right
+}
+
+.education-block h4 {
+    color: #74808a;
+    clear: both;
+    font-weight: 500;
+    margin: 0 0 15px 0
+}
+
+.education-block p,
+.education-block ul {
+    margin: 0;
+    color: #74808a;
+    font-size: 0.9em
+}
+
+.education-block ul {
+    padding: 0 0 0 15px
+}
+
+.edu-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    /* margin-bottom: 2rem; */
+  }
+  
+  .edu-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    /* margin-top: 5px; */
+    flex-shrink: 0;
+  }
+  
+  .edu-info {
+    align-self: anchor-center;
+    flex: 1;
+  }
+  
+  .edu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .edu-top h3 {
+    margin: 0;
+    /* font-size: 1.25rem; */
+  }
+  
+  .education-date {
+    /* font-size: 0.95rem; */
+    color: #666;
+  }
+    
 #projects {
     padding: 50px 15px;
-    border-bottom: 1px solid $border;
-    text-align: center;
+    border-bottom: 1px solid #dcd9d9;
+    text-align: center
+}
 
-    h2 {
-        color: $heading;
-        margin-bottom: 50px;
-    }
+#projects h2 {
+    color: #374054;
+    margin-bottom: 50px
 }
 
 .project {
     position: relative;
     max-width: 900px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 10px auto;
     overflow: hidden;
     background: #fff;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
 .project-image {
-    float: left;
+    margin-left: -15%;
+    horiz-align: center;
 }
 
 .project-info {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: 300px;
-    padding: 15px;
-
-    h3 {
-        font-size: 1.5em;
-        font-weight: 300;
-        color: $heading;
-        margin: 0 0 15px 0;
-    }
-
-    p {
-        color: $text;
-        margin: 0 0 15px 0;
-        font-size: 0.9em;
-    }
+    margin-left: 45%;
+    padding: 15px
 }
 
-.no-image {
-    .project-info {
-        position: relative;
-        margin: 0;
-        padding: 30px 15px;
-        transform: none;
-    }
+.project-info h3 {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #374054;
+    margin: 0 0 10px 0
+}
+
+.project-info p {
+    color: #74808a;
+    margin: 0 0 15px 0;
+    font-size: 0.9em
+}
+
+.no-image .project-info {
+    position: relative;
+    margin: 0;
+    padding: 30px 15px;
+    transform: none
 }
 
 #more-projects {
-    display: none;
+    display: none
 }
-
-/*
-    -------------------------------
-    ----- 9. Skills Styles -----
-    -------------------------------
-*/
 
 #skills {
     padding: 50px 15px;
-    text-align: center;
-
-    h2 {
-        color: $heading;
-        margin-bottom: 50px;
-    }
-
-    ul {
-        display: block;
-        margin: 0 auto;
-        padding: 0;
-        max-width: 800px;
-    }
-
-    li {
-        display: inline-block;
-        margin: 7px;
-        padding: 5px 10px;
-        color: $heading;
-        background: darken($background-alt, 5%);
-        list-style: none;
-        cursor: default;
-        font-size: 1.2em;
-    }
+    text-align: center
 }
 
-/*
-    -------------------------------
-    ----- 10. Contact Styles -----
-    -------------------------------
-*/
+#skills h2 {
+    color: #374054;
+    margin-bottom: 50px
+}
+
+#skills ul {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1300px
+}
+
+#skills li {
+    display: inline-block;
+    margin: 7px;
+    padding: 5px 10px;
+    color: #374054;
+    background: #e4e4ea;
+    list-style: none;
+    cursor: default;
+    font-size: 1.2em
+}
 
 #contact {
     padding: 50px 15px;
-    background: $base-color;
-    text-align: center;
+    background: #3498db;
+    text-align: center
+}
 
-    h2 {
-        margin: 0 0 15px 0;
-        color: #fff;
-        font-weight: 500;
-    }
+#contact h2 {
+    margin: 0 0 15px 0;
+    color: #fff;
+    font-weight: 500
 }
 
 #contact-form {
     max-width: 500px;
-    margin: 0 auto;
-
-    input, textarea {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        border-radius: 4px;
-        border: none;
-        margin-bottom: 10px;
-        background: darken($base-color, 15%);
-        color: #fff;
-        @include transition();
-        @include placeholder {
-            color: #fff;
-        }
-
-        &:focus {
-            outline: none;
-            background: darken($base-color, 25%);
-        }
-    }
-
-    textarea {
-        height: 150px;
-        resize: none;
-    }
-
-    button {
-        display: block;
-        width: 100%;
-        background: #fff;
-        border-radius: 4px;
-        padding: 5px 10px;
-        border: none;
-        color: $base-color;
-        font-weight: 700;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        @include transition();
-
-        &:hover {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        }
-    }
+    margin: 0 auto
 }
 
-/*
-    ---------------------------------------
-    ----- 11. Optional Section Styles -----
-    ---------------------------------------
-*/
+#contact-form input,
+#contact-form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 10px;
+    background: #1d6fa5;
+    color: #fff;
+    transition: .5s ease all
+}
+
+#contact-form input::-webkit-input-placeholder,
+#contact-form textarea::-webkit-input-placeholder {
+    color: #fff
+}
+
+#contact-form input:-moz-placeholder,
+#contact-form textarea:-moz-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+#contact-form input::-moz-placeholder,
+#contact-form textarea::-moz-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+#contact-form input:-ms-input-placeholder,
+#contact-form textarea:-ms-input-placeholder {
+    color: #fff
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    background: #16527a
+}
+
+#contact-form textarea {
+    height: 150px;
+    resize: none
+}
+
+#contact-form button {
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 5px 10px;
+    border: none;
+    color: #3498db;
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: .5s ease all
+}
+
+#contact-form button:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)
+}
 
 .optional-section {
     padding: 50px 15px;
     text-align: center;
-    border-top: 1px solid $border;
+    border-top: 1px solid #dcd9d9
+}
 
-    h2 {
-        color: $heading;
-    }
+.optional-section h2 {
+    color: #374054
 }
 
 .optional-section-block {
     max-width: 700px;
     margin: 0 auto 30px auto;
     padding: 15px;
-    border: 1px solid $border;
+    border: 1px solid #dcd9d9;
     background: #fff;
-    text-align: left;
-
-    h3 {
-        font-weight: 500;
-        margin: 0 0 15px 0;
-        color: $heading;
-    }
-
-    h4 {
-        color: $text;
-        clear: both;
-        font-weight: 500;
-        margin: 0 0 15px 0;
-    }
-
-    p, ul {
-        margin: 0 0 15px 0;
-        color: $text;
-        font-size: 0.9em;
-    }
-
-    ul {
-        padding: 0 0 0 15px;
-    }
+    text-align: left
 }
 
-/*
-    -----------------------------
-    ----- 12. Media Queries -----
-    -----------------------------
-*/
+.optional-section-block h3 {
+    font-weight: 500;
+    margin: 0 0 15px 0;
+    color: #374054
+}
 
-// Collapse timeline
+.optional-section-block h4 {
+    color: #74808a;
+    clear: both;
+    font-weight: 500;
+    margin: 0 0 15px 0
+}
+
+.optional-section-block p,
+.optional-section-block ul {
+    margin: 0 0 15px 0;
+    color: #74808a;
+    font-size: 0.9em
+}
+
+.optional-section-block ul {
+    padding: 0 0 0 15px
+}
+
 @media only screen and (max-width: 750px) {
-
-    #experience-timeline {
-        &:before, &:after {
-            left: 23px;
-        }
-
+    #experience-timeline:before,
+    #experience-timeline:after {
+        left: 23px
     }
-
     .vtimeline-date {
         width: auto;
         text-align: left;
         position: relative;
         margin-bottom: 15px;
         display: block;
-        margin-left: 70px;
+        margin-left: 70px
     }
-
     .vtimeline-icon {
-        margin-left: 0;
+        margin-left: 0
     }
-
     .vtimeline-content {
-        margin-left: 70px;
+        margin-left: 70px
     }
-
 }
 
-// Medium Devices
-@media only screen and (max-width : 992px) {
-
+@media only screen and (max-width: 992px) {
     #lead {
         height: auto;
         min-height: auto;
         max-height: auto;
-        padding: 100px 15px;
+        padding: 100px 15px
     }
-
     #lead-content {
         position: relative;
         transform: none;
         left: auto;
-        top: auto;
-
-        h1 {
-            font-size: 3em;
-        }
-
-        h2 {
-            font-size: 1.75em;
-        }
+        top: auto
     }
-
+    #lead-content h1 {
+        font-size: 3em
+    }
+    #lead-content h2 {
+        font-size: 1.75em
+    }
     #about {
-        text-align: center;
-
-        p {
-            text-align: left;
-        }
+        text-align: center
     }
-
+    #about p {
+        text-align: left
+    }
 }
 
-// Small Devices
-@media only screen and (max-width : 768px) {
-
+@media only screen and (max-width: 768px) {
     header {
         position: fixed;
         display: none;
         z-index: 999;
         animation: none;
         bottom: 0;
-        height: 100%;
+        height: 100%
     }
-
-    #mobile-menu-open, #mobile-menu-close {
-        display: block;
+    #mobile-menu-open,
+    #mobile-menu-close {
+        display: block
     }
-
     #menu {
         height: 100%;
         overflow-y: auto;
         box-shadow: none;
         border-radius: 0;
-        width: 100%;
-
-        li {
-            display: block;
-            margin-bottom: 10px;
-        }
+        width: 100%
     }
-
-    #lead-content {
-        h1 {
-            font-size: 2em;
-        }
-
-        h2 {
-            font-size: 1.3em;
-        }
-
-        a {
-            padding: 10px 20px;
-        }
+    #menu li {
+        display: block;
+        margin-bottom: 10px
     }
-
+    #lead-content h1 {
+        font-size: 2em
+    }
+    #lead-content h2 {
+        font-size: 1.3em
+    }
+    #lead-content a {
+        padding: 10px 20px
+    }
     #lead-down {
-        display: none;
+        display: none
     }
-
-    .education-block {
-        h3, span {
-            float: none;
-        }
+    .education-block h3,
+    .education-block span {
+        float: none
     }
-
-    .project-image {
-        float: left;
-        width: 40%; /* Adjust width of the image */
-        margin-right: 5%; /* Add margin between image and text */
-
-    }
-
     .project-info {
-        width: 55%; /* Adjust width of the project info */
-        float: left; /* Float the project info to the right */
-        padding: 15px;
+        position: relative;
+        margin: 0;
+        padding: 30px 15px;
+        top: auto;
+        transform: none
     }
-
     footer {
-        text-align: center;
+        text-align: center
     }
-
     .social {
-        text-align: center;
+        text-align: center
     }
-
 }
 
-// Extra Small Devices
-@media only screen and (max-width : 480px) {
-
-    #lead-content {
-        h1 {
-            font-size: 1.5em;
-        }
-
-        h2 {
-            font-size: 1em;
-        }
-
-        a {
-            font-size: 0.9em;
-            padding: 5px 10px;
-        }
+@media only screen and (max-width: 480px) {
+    #lead-content h1 {
+        font-size: 1.5em
     }
-
+    #lead-content h2 {
+        font-size: 1em
+    }
+    #lead-content a {
+        font-size: 0.9em;
+        padding: 5px 10px
+    }
 }
 .project-grid {
     display: grid;
@@ -1013,19 +1008,27 @@ footer {
     gap: 2rem;
     padding: 2rem 0;
 }
-
 .project-card {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     height: 100%;
 }
 
+.project-card h3 {
+    margin: 1rem 0 0.5rem;
+    padding: 0;
+}
+.project-card p {
+    flex-grow: 1;
+    /* font-size: 0.95rem; */
+    color: #333;
+    margin: 0 0 1rem;
+}
 .project-card:hover {
     transform: translateY(-5px);
 }
@@ -1034,26 +1037,78 @@ footer {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-bottom: 1px solid #eee;
-}
-
-.project-card h3 {
-    margin: 1rem 0 0.5rem;
-    font-size: 1.1rem;
-    padding: 0 1rem;
-    flex-grow: 1;
+    border-radius: 5px;
 }
 
 .project-card a {
-    margin: 1rem auto 1.5rem;
     padding: 0.5rem 1rem;
     background: #0077cc;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    transition: background 0.2s;
 }
 
 .project-card a:hover {
     background: #005fa3;
 }
+
+.button-group {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15 px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.project-card a:hover {
+    background: #005fa3;
+}
+
+#skills-section {
+    padding: 2rem 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  .skills-box {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    flex: 1 1 45%;
+    min-width: 280px;
+  }
+  
+  .skills-box h3 {
+    color: #0077cc;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    border-bottom: 2px solid #0077cc;
+    padding-bottom: 0.5rem;
+  }
+  
+  .skills-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .skills-box ul li {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  .skills-box ul li strong {
+    color: #444;
+  }
+  
