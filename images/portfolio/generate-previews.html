@@ -1,0 +1,107 @@
+<!-- Placeholder Preview Images -->
+<!-- These are temporary placeholder images. Replace with actual preview images from your portfolio -->
+
+<!-- You can create these placeholder files or replace the src attributes with actual images -->
+<!-- For now, let's use some placeholder services or create simple colored rectangles -->
+
+<!-- To create actual preview images, you'll need one representative image from each album -->
+<!-- Recommended sizes: 400x300 pixels for preview cards -->
+
+<!-- Sample HTML for testing the layout: -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Preview Image Generator</title>
+    <style>
+        .preview-generator {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .preview-card {
+            width: 300px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .nature { background: linear-gradient(135deg, #4CAF50, #81C784); }
+        .portraits { background: linear-gradient(135deg, #FF9800, #FFB74D); }
+        .travel { background: linear-gradient(135deg, #2196F3, #64B5F6); }
+        .events { background: linear-gradient(135deg, #9C27B0, #BA68C8); }
+    </style>
+</head>
+<body>
+    <div class="preview-generator">
+        <div class="preview-card nature">
+            <div>
+                <div>🌲</div>
+                <div>Nature &</div>
+                <div>Landscapes</div>
+            </div>
+        </div>
+        <div class="preview-card portraits">
+            <div>
+                <div>👤</div>
+                <div>Portraits</div>
+            </div>
+        </div>
+        <div class="preview-card travel">
+            <div>
+                <div>✈️</div>
+                <div>Travel</div>
+            </div>
+        </div>
+        <div class="preview-card events">
+            <div>
+                <div>📸</div>
+                <div>Events</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // You can use this to generate canvas-based preview images
+        function generatePreviewImage(text, colors, filename) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 400;
+            canvas.height = 300;
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, colors[0]);
+            gradient.addColorStop(1, colors[1]);
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 36px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Uncomment to generate placeholder images
+        // generatePreviewImage('Nature', ['#4CAF50', '#81C784'], 'nature-preview.jpg');
+        // generatePreviewImage('Portraits', ['#FF9800', '#FFB74D'], 'portraits-preview.jpg');
+        // generatePreviewImage('Travel', ['#2196F3', '#64B5F6'], 'travel-preview.jpg');
+        // generatePreviewImage('Events', ['#9C27B0', '#BA68C8'], 'events-preview.jpg');
+    </script>
+</body>
+</html>
+<!-- End of Preview Image Generator -->
+<!-- Replace the placeholder images with actual images from your portfolio once available -->

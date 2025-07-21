@@ -86,6 +86,9 @@
                 <a href="#projects" rel="nofollow">Projects</a>
             </li>
             <li>
+                <a href="#photography" rel="nofollow">Photography</a>
+            </li>
+            <li>
                 <a href="#skills" rel="nofollow">Skills</a>
             </li>
             <li>
@@ -413,9 +416,54 @@
             
         </div>
     </div>
-    
-    
     <!-- End #projects -->
+
+    <div id="photography" class="background-alt">
+        <div class="container">
+            <h2 class="heading">Photography Portfolio</h2>
+            <p class="text-center" style="margin-bottom: 40px;">Capturing moments and stories through my lens for over a decade.</p>
+            
+            <!-- Album Preview Cards -->
+            <div class="album-preview-grid">
+                <div class="album-preview-card" onclick="openAlbum('nature')">
+                    <img src="https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=Nature%20%26%20Landscapes" alt="Nature Photography" loading="lazy">
+                    <div class="album-info">
+                        <h3>Nature & Landscapes</h3>
+                        <p id="nature-count">Loading...</p>
+                    </div>
+                </div>
+                
+                <div class="album-preview-card" onclick="openAlbum('portraits')">
+                    <img src="https://via.placeholder.com/400x300/FF9800/FFFFFF?text=Portraits" alt="Portrait Photography" loading="lazy">
+                    <div class="album-info">
+                        <h3>Portraits</h3>
+                        <p id="portraits-count">Loading...</p>
+                    </div>
+                </div>
+                
+                <div class="album-preview-card" onclick="openAlbum('travel')">
+                    <img src="https://via.placeholder.com/400x300/2196F3/FFFFFF?text=Travel" alt="Travel Photography" loading="lazy">
+                    <div class="album-info">
+                        <h3>Travel</h3>
+                        <p id="travel-count">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="album-preview-card" onclick="openAlbum('events')">
+                    <img src="https://via.placeholder.com/400x300/9C27B0/FFFFFF?text=Events" alt="Event Photography" loading="lazy">
+                    <div class="album-info">
+                        <h3>Events</h3>
+                        <p id="events-count">Loading...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 30px;">
+                <a href="photography.html" class="btn btn-primary">View Full Portfolio</a>
+            </div>
+        </div>
+    </div>
+    <!-- End #photography -->
 
     <div id="skills">
         <div id="skills-section">
@@ -526,6 +574,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/scripts.min.js"></script>
+    <script src="js/photography.js"></script>
     <script>
         $(document).ready(function() {
             //Preloader
