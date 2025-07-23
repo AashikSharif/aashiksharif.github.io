@@ -426,34 +426,34 @@
             <!-- Album Preview Cards -->
             <div class="album-preview-grid">
                 <div class="album-preview-card" onclick="openAlbum('nature')">
-                    <img src="https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=Nature%20%26%20Landscapes" alt="Nature Photography" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=280&fit=crop&q=80" alt="Nature Photography" loading="lazy">
                     <div class="album-info">
                         <h3>Nature & Landscapes</h3>
-                        <p id="nature-count">Loading...</p>
+                        <p>6 stunning landscape photos</p>
                     </div>
                 </div>
                 
                 <div class="album-preview-card" onclick="openAlbum('portraits')">
-                    <img src="https://via.placeholder.com/400x300/FF9800/FFFFFF?text=Portraits" alt="Portrait Photography" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=280&fit=crop&q=80" alt="Portrait Photography" loading="lazy">
                     <div class="album-info">
                         <h3>Portraits</h3>
-                        <p id="portraits-count">Loading...</p>
+                        <p>4 professional portraits</p>
                     </div>
                 </div>
                 
                 <div class="album-preview-card" onclick="openAlbum('travel')">
-                    <img src="https://via.placeholder.com/400x300/2196F3/FFFFFF?text=Travel" alt="Travel Photography" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=280&fit=crop&q=80" alt="Travel Photography" loading="lazy">
                     <div class="album-info">
                         <h3>Travel</h3>
-                        <p id="travel-count">Loading...</p>
+                        <p>4 travel destinations</p>
                     </div>
                 </div>
 
                 <div class="album-preview-card" onclick="openAlbum('events')">
-                    <img src="https://via.placeholder.com/400x300/9C27B0/FFFFFF?text=Events" alt="Event Photography" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=280&fit=crop&q=80" alt="Event Photography" loading="lazy">
                     <div class="album-info">
                         <h3>Events</h3>
-                        <p id="events-count">Loading...</p>
+                        <p>4 memorable events</p>
                     </div>
                 </div>
             </div>
@@ -574,6 +574,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/scripts.min.js"></script>
+    <!-- Load configuration before photography script -->
+    <script src="js/config.js"></script>
     <script src="js/photography.js"></script>
     <script>
         $(document).ready(function() {

@@ -95,3 +95,8 @@
     });
 
 })(jQuery);
+
+// Function to handle album navigation from photography section
+function openAlbum(category) {
+    window.location.href = `photography.html?category=${category}`;
+}

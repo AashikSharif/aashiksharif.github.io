@@ -1,1 +1,16 @@
 node_modules/
+
+# Configuration files with sensitive data
+js/config.js
+config.js
+.env
+.env.local
+
+# Photography portfolio sensitive files
+photography-secrets.json
+cloudinary-config.json
+
+# IDE and OS files
+.DS_Store
+.vscode/settings.json
+*.log
