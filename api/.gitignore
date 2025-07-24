@@ -1,0 +1,9 @@
+# Add to .gitignore to keep secrets safe
+node_modules/
+.env
+*.log
+secret/
+.env.local
+.env.production
+dist/
+build/

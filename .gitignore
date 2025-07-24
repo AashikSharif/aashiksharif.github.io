@@ -2,15 +2,28 @@ node_modules/
 
 # Configuration files with sensitive data
 js/config.js
+js/cloudinary-config.js
 config.js
 .env
 .env.local
+*.env
+
+# Secret directories and files
+secret/
+secrets/
+private/
 
 # Photography portfolio sensitive files
 photography-secrets.json
 cloudinary-config.json
+cloudinary-credentials.*
 
 # IDE and OS files
 .DS_Store
 .vscode/settings.json
 *.log
+
+# API keys and credentials
+*credentials*
+*api-key*
+*secret*

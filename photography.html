@@ -104,7 +104,7 @@
         .gallery-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 3rem 2rem 2rem;
         }
 
         .loading {
@@ -112,57 +112,190 @@
             padding: 4rem 2rem;
         }
 
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-auto-rows: 5px;
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.25rem; /* Further reduced from 0.5rem */
+        }
+
+        @media (min-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem; /* Further reduced from 0.75rem */
+            }
+        }
+
+        .photo-column {
+            display: grid;
+            grid-auto-rows: min-content; /* Force rows to fit content, not stretch */
+            gap: 0.125rem; /* Very tight spacing - reduced from 0.25rem */
+        }
+
+        @media (min-width: 768px) {
+            .photo-column {
+                gap: 0.25rem; /* Further reduced from 0.5rem */
+            }
         }
 
         .photo-item {
             position: relative;
-            border-radius: 12px;
-            overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 0.5rem;
+            overflow: hidden;
             background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            font-size: 0;
-            line-height: 0;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .photo-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .photo-item img {
             width: 100%;
             height: auto;
+            border-radius: 0.5rem;
             display: block;
-            transition: transform 0.3s ease;
-            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Square images - only for equal dimensions */
+        .photo-item.square.image-loaded {
+            aspect-ratio: 1/1; /* Force square aspect ratio */
+        }
+
+        .photo-item.square img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        /* Natural dimensions - for all non-square images */
+        .photo-item.natural.image-loaded {
+            width: 100% !important; /* Full width of column */
+            /* Let JavaScript control the height completely - NO !important on height */
+            aspect-ratio: unset !important; /* Remove any aspect ratio constraints */
+            min-height: unset !important; /* Remove min-height constraints */
+            max-height: unset !important; /* Remove max-height constraints */
+        }
+
+        .photo-item.natural img {
+            width: 100% !important;
+            height: 100% !important; /* Fill the container completely */
+            object-fit: cover !important; /* Cover the container while maintaining aspect ratio */
+            border-radius: 0.5rem;
+            display: block !important;
+        }
+
+        .photo-item.unknown img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        /* Placeholder styles */
+        .photo-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 200px; /* Default height for unknown orientation */
+            background-color: #d1d5db; /* gray-300 */
+            border-radius: 0.5rem;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            position: relative;
+        }
+
+        /* Orientation-specific placeholder sizes */
+        .photo-item.square .photo-placeholder {
+            height: 200px; /* Square placeholder */
+        }
+
+        .photo-item.natural .photo-placeholder {
+            height: 200px; /* Default placeholder for natural images */
+        }
+
+        .photo-placeholder svg {
+            width: 2.5rem; /* w-10 */
+            height: 2.5rem; /* h-10 */
+            color: #9ca3af; /* gray-400 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+
+        /* Hide image initially, show placeholder */
+        .photo-item img {
+            display: none;
+        }
+
+        .photo-placeholder {
+            display: flex;
+        }
+
+        /* When image is loaded, hide placeholder and show image */
+        .photo-item.image-loaded .photo-placeholder {
+            display: none;
+        }
+
+        .photo-item.image-loaded img {
+            display: block;
+        }
+
+        /* Ensure loaded containers fit content properly - only for non-specific cases */
+        .photo-item.image-loaded:not(.natural):not(.square) {
+            height: auto;
+            min-height: auto;
+            /* Removed aspect-ratio: auto to allow orientation-specific ratios */
+        }
+
+        /* Lightbox placeholder */
+        .lightbox-placeholder {
+            position: relative;
+            width: 90vw;
+            height: 60vh;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -45%;
+            height: 100%;
+            width: 45%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0)
+            );
+            animation: shimmer 1.5s infinite ease-in-out;
         }
 
         .photo-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         .photo-overlay {
@@ -172,9 +305,10 @@
             right: 0;
             background: linear-gradient(transparent, rgba(0,0,0,0.8));
             color: white;
-            padding: 2rem 1.5rem 1.5rem;
+            padding: 1.5rem 1rem 1rem;
             transform: translateY(100%);
             transition: transform 0.3s ease;
+            border-radius: 0 0 0.5rem 0.5rem;
         }
 
         .photo-item:hover .photo-overlay {
@@ -182,7 +316,7 @@
         }
 
         .photo-overlay h4 {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-weight: 500;
             margin: 0;
         }
@@ -206,6 +340,10 @@
         .lightbox.active {
             opacity: 1;
             visibility: visible;
+        }
+
+        .lightbox-open {
+            overflow: hidden;
         }
 
         .lightbox-content {
@@ -289,8 +427,13 @@
             }
 
             .photo-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 15px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.25rem; /* Consistent with main mobile rule */
+            }
+
+            .photo-column {
+                grid-auto-rows: min-content; /* Force rows to fit content on mobile too */
+                gap: 0.125rem; /* Consistent with main mobile rule */
             }
 
             .lightbox-nav {
@@ -301,7 +444,7 @@
         @media (max-width: 480px) {
             .photo-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 0.25rem; /* Consistent with mobile rules */
             }
 
             .nav-container {
@@ -327,20 +470,13 @@
     <nav class="nav-tabs">
         <div class="nav-container">
             <button class="nav-tab active" data-category="all">All Photos</button>
-            <button class="nav-tab" data-category="nature">Nature</button>
-            <button class="nav-tab" data-category="portraits">Portraits</button>
-            <button class="nav-tab" data-category="travel">Travel</button>
-            <button class="nav-tab" data-category="events">Events</button>
+            <button class="nav-tab" data-category="awardwinning">Award Winning</button>
+            <button class="nav-tab" data-category="picturemix">Picture Mix</button>
         </div>
     </nav>
 
     <div class="gallery-container">
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p>Loading amazing photos...</p>
-        </div>
-
-        <div class="photo-grid" id="photoGrid" style="display: none;">
+        <div class="photo-grid" id="photoGrid">
             <!-- Photos will be loaded here by JavaScript -->
         </div>
     </div>
@@ -358,6 +494,10 @@
         </div>
     </div>
 
+    <!-- Cloudinary Configuration -->
+    <script src="js/cloudinary-config.js"></script>
+    
+    <!-- Photography Portfolio Script -->
     <script src="js/photography.js"></script>
 </body>
 </html>
