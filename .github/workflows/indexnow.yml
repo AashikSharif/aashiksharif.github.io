@@ -1,0 +1,49 @@
+name: IndexNow submit
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+
+jobs:
+  submit-indexnow:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build payload
+        run: |
+          HOST="aashiksharif.github.io"
+          KEY="${{secrets.INDEXNOW_KEY}}"
+          KEY_LOCATION="https://$HOST/${{secrets.INDEXNOW_KEY}}.txt"
+
+          # TODO: keep this list short-ish and relevant
+          URLS=(
+            "https://aashiksharif.github.io/"
+            "https://aashiksharif.github.io/projects/"
+            "https://aashiksharif.github.io/blog/"
+          )
+
+          printf '{\n'                             > payload.json
+          printf '  "host":"%s",\n' "$HOST"       >> payload.json
+          printf '  "key":"%s",\n' "$KEY"         >> payload.json
+          printf '  "keyLocation":"%s",\n' "$KEY_LOCATION" >> payload.json
+          printf '  "urlList":[\n'                >> payload.json
+          for i in "${!URLS[@]}"; do
+            COMMA=","
+            [ "$i" -eq "$((${#URLS[@]}-1))" ] && COMMA=""
+            printf '    "%s"%s\n' "${URLS[$i]}" "$COMMA" >> payload.json
+          done
+          printf '  ]\n}\n' >> payload.json
+
+          cat payload.json
+
+      - name: Submit to IndexNow (api.indexnow.org)
+        run: |
+          curl -sS -D resp.headers -o resp.body \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data-binary @payload.json \
+            https://api.indexnow.org/indexnow
+          echo "---- Response headers ----"
+          cat resp.headers
+          echo "---- Response body ----"
+          cat resp.body
