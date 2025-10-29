@@ -16,11 +16,9 @@ jobs:
           KEY="${{secrets.INDEXNOW_KEY}}"
           KEY_LOCATION="https://$HOST/${{secrets.INDEXNOW_KEY}}.txt"
 
-          # TODO: keep this list short-ish and relevant
+          # TODO: keep this list short-ish and relevant, add more relevant pages below
           URLS=(
             "https://aashiksharif.github.io/"
-            "https://aashiksharif.github.io/projects/"
-            "https://aashiksharif.github.io/blog/"
           )
 
           printf '{\n'                             > payload.json
